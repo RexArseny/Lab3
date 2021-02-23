@@ -14,22 +14,49 @@ double summ(int n)
 
 double summ2(double eps)
 {
-    return 0;
+    double result = 0;
+    for (int i = 0; abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps; i++)
+    {
+        result += pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1);
+    }
+    return result;
 }
 
 void print(int n, int k)
 {
-    
+    int c = 1;
+    for (int i = 0; i < n; i++)
+    {
+        if (i == c * k)
+        {
+            c++;
+            continue;
+        }
+        else
+        {
+            cout << pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) << endl;
+        }
+    }
 }
 
 int findFirstElement(double eps)
 {
-    return 0;
+    int result = 0;
+    for (int i = 0; abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps; i++)
+    {
+        result = i;
+    }
+    return result + 1;
 }
 
 int findFirstNegativeElement(double eps)
 {
-    return 0;
+    int result = 0;
+    for (int i = 0; ((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) and (pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) < 0)); i++)
+    {
+        result = i;
+    }
+    return result + 1;
 }
 
 int main()
@@ -62,25 +89,23 @@ int main()
         case 2:
             cout << "Введите eps" << endl;
             cin >> eps;
-            cout << summ2(eps);
+            cout << summ2(eps) << endl;
             break;
         case 3:
             cout << "Введите n и k" << endl;
             cin >> n;
             cin >> k;
-            //cout << print(n, k);
+            print(n, k);
             break;
         case 4:
-            cout << "Введите n и k" << endl;
-            cin >> n;
-            cin >> k;
-            //cout << print(n, k);
+            cout << "Введите eps" << endl;
+            cin >> eps;
+            cout << findFirstElement(eps) << endl;
             break;
         case 5:
-            cout << "Введите n и k" << endl;
-            cin >> n;
-            cin >> k;
-            //cout << print(n, k);
+            cout << "Введите eps" << endl;
+            cin >> eps;
+            cout << findFirstNegativeElement(eps) << endl;
             break;
         case 6:
             b = 0;
