@@ -21,13 +21,14 @@ double summ2(double eps)
 {
     double result = 0;
     int i = 0;
-    if ((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) - 1)
+    if (abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps)
     {
         do
         {
             result += pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1);
             i++;
-        } while ((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) - 1);
+        } while (abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps);
+        i++;
     }
     return result;
 }
