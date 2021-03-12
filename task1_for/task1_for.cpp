@@ -44,7 +44,14 @@ int findFirstElement(double eps)
     int result = 0;
     for (int i = 0; abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps; i++)
     {
-        result = i;
+        if (abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps)
+        {
+            result = i;
+        }
+        else
+        {
+            break;
+        }
     }
     return result + 1;
 }

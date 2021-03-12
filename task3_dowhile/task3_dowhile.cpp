@@ -6,11 +6,14 @@ double summ(int n)
 {
     double result = 0;
     int i = 0;
-    do
+    if (i < n - 1)
     {
-        result += pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1);
-        i++;
-    } while (i < n - 1);
+        do
+        {
+            result += pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1);
+            i++;
+        } while (i < n - 1);
+    }
     return result;
 }
 
@@ -30,39 +33,56 @@ void print(int n, int k)
 {
     int c = 1;
     int i = 0;
-    do
+    if (i < n - 1)
     {
-        if (i == c * k)
+        do
         {
-            c++;
-            continue;
-        }
-        else
-        {
-            cout << pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) << endl;
-        }
-        i++;
-    } while (i < n - 1);
+            if (i == c * k)
+            {
+                c++;
+                i++;
+                continue;
+            }
+            else
+            {
+                cout << pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) << endl;
+            }
+            i++;
+        } while (i < n - 1);
+    }
 }
 
 int findFirstElement(double eps)
 {
     int i = 0;
-    do
+    if (abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps)
     {
-        i++;
-    } while ((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) - 1);
-    return i++;
+        do
+        {
+            if (abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps)
+            {
+                i++;
+            }
+            else
+            {
+                break;
+            }
+        } while (abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps);
+    }
+    return i;
 }
 
 int findFirstNegativeElement(double eps)
 {
     int i = 0;
-    do
+    if (((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) and (pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) < 0)) - 1)
     {
-        i++;
-    } while (((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) and (pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) < 0)) - 1);
-    return i++;
+        do
+        {
+            i++;
+        } while (((abs(pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1)) > eps) and (pow(-1, i) * (i + 1) / (pow(i, 3) - pow(i, 2) + 1) < 0)) - 1);
+    }
+    return i;
 }
 
 int main()
