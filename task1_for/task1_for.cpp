@@ -53,7 +53,7 @@ int findFirstElement(double eps)
             break;
         }
     }
-    return result + 1;
+    return ++result;
 }
 
 int findFirstNegativeElement(double eps)

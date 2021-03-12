@@ -60,7 +60,7 @@ int findFirstElement(double eps)
             break;
         }
     }
-    return i++;
+    return i;
 }
 
 int findFirstNegativeElement(double eps)
@@ -70,7 +70,7 @@ int findFirstNegativeElement(double eps)
     {
         i++;
     }
-    return i++;
+    return ++i;
 }
 
 int main()
